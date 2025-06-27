@@ -595,7 +595,7 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        padding: 1.5rem 15px; 
+        padding: 1.5rem 15px;
     }
 
     .main-menu-toggle {
@@ -623,52 +623,55 @@ footer {
     .header-social-links {
         order: 1;
         white-space: nowrap;
-        margin-left: 0; 
-        gap: 8px; 
+        margin-left: 0;
+        gap: 8px;
     }
-    
+
     .primary-nav-links {
         position: fixed;
-        top: 60px;
-        left: -250px;
-        width: 250px;
-        height: calc(100vh - 60px); 
+        top: 0; /* El menú empieza desde la parte superior */
+        left: -200px; /* Ancho reducido */
+        width: 200px; /* Ancho reducido */
+        height: 100vh; /* Ocupa toda la altura del viewport */
         background: rgba(17, 24, 39, 0.98);
         flex-direction: column;
-        padding: 20px; 
+        padding: 50px 15px; /* Un poco de padding para no pegar los textos al borde */
+        justify-content: center; /* Centra verticalmente los elementos hijos */
+        align-items: center; /* Centra horizontalmente los elementos hijos (si fuera necesario) */
         box-shadow: 4px 0 10px rgba(0, 0, 0, 0.6);
         transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
         z-index: 999;
-        overflow-y: auto; 
-        align-items: flex-start;
-        opacity: 0; 
+        overflow-y: auto;
+        opacity: 0;
         pointer-events: none;
     }
 
-    
+
     body.sidebar-active .primary-nav-links {
         left: 0;
-        opacity: 1; 
+        opacity: 1;
         pointer-events: auto;
-        display: flex;
+        display: flex; /* Asegura que flexbox se aplique cuando está activo */
     }
 
     .primary-nav-links li {
         margin: 15px 0;
         width: 100%;
+        text-align: center; /* Centra el texto de los enlaces */
     }
 
     .primary-nav-links a {
         font-size: 1.2em;
-        text-align: left;
+        text-align: center; /* Centra el texto del enlace */
         padding: 10px 0;
         border-bottom: 1px solid rgba(74, 85, 104, 0.3);
+        width: 100%; /* Asegura que el borde ocupe todo el ancho del li */
     }
 
     .primary-nav-links li:last-child a {
         border-bottom: none;
     }
-    
+
     .hero {
         flex-direction: column;
         padding: 50px 20px;
@@ -683,17 +686,17 @@ footer {
     }
 
     .hero-content h2 {
-        font-size: 2.5em; 
+        font-size: 2.5em;
         text-align: center;
     }
 
     .hero-content p {
-        font-size: 1em; 
+        font-size: 1em;
         text-align: center;
     }
 
     .hero-image img {
-        width: 180px; 
+        width: 180px;
     }
 
     .section-container {
@@ -712,7 +715,7 @@ footer {
 
 @media (max-width: 480px) {
     header {
-        padding: 1rem 10px; 
+        padding: 1rem 10px;
     }
     header nav h1 {
         font-size: 1.1em;
@@ -766,8 +769,8 @@ footer {
     color: #b0b0b0;
     border-radius: 5px;
     font-weight: bold;
-    cursor: not-allowed; 
-    pointer-events: none; 
+    cursor: not-allowed;
+    pointer-events: none;
     text-decoration: none;
-    transition: none; 
+    transition: none;
 }
