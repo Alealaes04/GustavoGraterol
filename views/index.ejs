@@ -1,11 +1,145 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('partials/header') %>
+
+<section id="about" class="hero">
+    <div class="hero-content">
+        <h2>Soy Gustavo Graterol<br>
+        un gusto tenerte aquí,<br>
+        conoce más de mí y mi camino en el desarrollo</h2>
+    </div>
+    <div class="hero-image">
+        <img src="/images/profile.jpg" alt="Gustavo Graterol">
+    </div>
+</section>
+
+<hr>
+
+<section id="my-journey" class="section-container">
+    <h2>Sobre Mí y Mi Trayectoria</h2>
+    <p>Soy una persona proactiva, organizada y responsable con buenas relaciones interpersonales. Siempre tengo la mejor disposición para realizar mi trabajo. Me dedico plenamente a cada una de mis responsabilidades.</p>
+    <p>Desde mis inicios con el corazón en la tecnología y el desarrollo, fui conociendo algoritmos y practicando en papel y lápiz, luego pseint, hasta llegar a visual studio code junto con otras herramientas, y mi cerebro con mucha más lógica, prácticas, técnicas, conocimientos y mucho código, he realizado variedades de proyectos y colaboraciones el cual solidifican mis conocimientos</p>
+
+    <div class="tech-journey">
+        <div class="tech-area">
+            <h3>Backend</h3>
+            <div class="tech-logos">
+                <img src="/images/node.png" alt="Node.js Logo" class="tech-logo">
+                <img src="/images/express.png" alt="Express.js Logo" class="tech-logo">
+            </div>
+            <p>Aplicando técnicas asíncronas, separando las responsabilidades, utilizando middlewares, haciendo conexiones de websocket.</p>
+        </div>
+
+        <div class="tech-area">
+            <h3>Bases de Datos</h3>
+            <div class="tech-logos">
+                <img src="/images/sqlite.png" alt="SQLite Logo" class="tech-logo">
+                <img src="/images/firebase.png" alt="Firebase Logo" class="tech-logo">
+                <img src="/images/sql.png" alt="SQL Logo" class="tech-logo">
+                <img src="/images/xampp.png" alt="XAMPP Logo" class="tech-logo">
+            </div>
+            <p>Minimizando lecturas de datos, colocando parámetros, utilizando índices, adaptando Realtime.</p>
+        </div>
+
+        <div class="tech-area">
+            <h3>Frontend</h3>
+            <div class="tech-logos">
+                <img src="/images/html.png" alt="HTML Logo" class="tech-logo">
+                <img src="/images/css.png" alt="CSS Logo" class="tech-logo">
+                <img src="/images/javascript.png" alt="JavaScript Logo" class="tech-logo">
+                <img src="/images/react.png" alt="React Logo" class="tech-logo">
+            </div>
+            <p>Aplicando WebAssembly, haciendo división de código, utilizando Lazy Loading, y todo de lo que sea capaz de aplicar.</p>
+        </div>
+    </div>
+   <center><p class="destello-texto">No hay día que pase que no obtenga conocimiento de este arte del desarrollo.✨</p></center>
+</section>
+
+<hr>
+
+<section id="skills" class="section-container">
+    <h2>Habilidades</h2>
+    <p class="experience-summary">Con 4 años de experiencia💼📚 desde el inicio de mi carrera en el desarrollo, he cultivado un profundo conocimiento en diversas áreas:</p>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Backend</h3>
+            <ul>
+                <li>Alto conocimiento en el backend de Node.js</li>
+                <li>Conocimiento de bases de datos (SQLite, Firebase, SQL, XAMPP)</li>
+            </ul>
+        </div>
+        <div class="skill-category">
+            <h3>Frontend</h3>
+            <ul>
+                <li>Conocimiento en frontend (HTML, CSS, Javascript, React, Express)</li>
+                <li>Aplicación de Técnicas y buenas prácticas</li>
+            </ul>
+        </div>
+        <div class="skill-category">
+            <h3>Personales</h3>
+            <ul>
+                <li>Adaptación rápida a cualquier entorno.</li>
+                <li>Máxima concentración en cualquier tarea.</li>
+                <li>Puedo trabajar con un equipo o individualmente.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section id="education" class="section-container">
+    <h2>Educación</h2>
+    <div class="education-list">
+        <div class="education-item">
+            <h3>2021 - Actualidad</h3>
+            <h4>🎓 UNERG</h4>
+            <p>📜Estudiando octavo semestre de ingeniería en informática.</p>
+        </div>
+        <div class="education-item">
+            <h3>2015 - 2021</h3>
+            <h4>🎓 E.T.I La Victoria</h4>
+            <p>📜Técnico Medio en Electricidad.</p>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section id="projects" class="section-container">
+    <h2>Mis Proyectos</h2>
+   <center><p><span class="destello-texto">Si lo puedes imaginar, lo puedes programar👨‍💻</span></p></center>
+    <div class="projects-grid">
+        <% projects.forEach(project => { %>
+            <%- include('partials/projectCard', { project: project }) %>
+        <% }); %>
+    </div>
+</section>
+
+<hr>
+
+<section id="contact" class="section-container">
+    <h2>Contacto</h2>
+    <p>Estoy dispuesto a realizar cualquier proyecto que tengas en mente, con mi potencial más el impulso de la IA, todo es posible</p>
+    <p>No dudes en contactarme a través de:</p>
+    <ul>
+        <li>Teléfono: +58 424-3459402</li>
+        <li>Correo Electrónico: <a href="mailto:gustavoalaes04@gmail.com">gustavoalaes04@gmail.com</a></li>
+    </ul>
+
+    <div class="language-skills">
+        <h3>Mis habilidades lingüísticas:</h3>
+        <div class="languages">
+            <div class="language-item">
+                <img src="/images/españa.png" alt="Bandera de España" class="flag-icon">
+                <span>Español: Nativo</span>
+            </div>
+            <div class="language-item">
+                <img src="/images/inglaterra.png" alt="Bandera de Reino Unido" class="flag-icon">
+                <span>Inglés: A1</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
+
+<script src="/javascripts/main.js"></script>
