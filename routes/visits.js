@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../firebaseConfig'); // Importa la instancia de Firestore
+const db = require('./firebaseConfig'); // Importa la instancia de Firestore
 require('dotenv').config();
 
 // Middleware para obtener la IP real del cliente
