@@ -4,7 +4,85 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.main-menu-toggle');
     const navLinks = document.querySelector('.primary-nav-links');
 
-    //INICIO: Lógica para el formulario de contacto
+    // --- Lógica para el scroll del header ---
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            body.classList.add('scrolled');
+            if (header) { 
+                header.classList.add('scrolled');
+            }
+        } else {
+            body.classList.remove('scrolled');
+            if (header) {
+                header.classList.remove('scrolled');
+            }
+        }
+    };
+
+    handleScroll(); // Llama una vez al cargar para establecer el estado inicial
+    window.addEventListener('scroll', handleScroll);
+
+    // --- Lógica para el menú lateral (toggle) ---
+    if (menuToggle && navLinks) {
+        // Abrir/cerrar menú al hacer clic en el botón de toggle
+        menuToggle.addEventListener('click', () => {
+            body.classList.toggle('sidebar-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace del menú
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (body.classList.contains('sidebar-active')) {
+                    body.classList.remove('sidebar-active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera de él
+        document.addEventListener('click', (event) => {
+            if (body.classList.contains('sidebar-active') &&
+                !navLinks.contains(event.target) &&
+                !menuToggle.contains(event.target)) {
+
+                body.classList.remove('sidebar-active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+    } else {
+        console.error("Error: Elementos 'main-menu-toggle' o 'primary-nav-links' no encontrados en el DOM.");
+    }
+
+    //Lógica para el smooth scrolling a secciones
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                const headerOffset = header ? header.offsetHeight : 0; // Obtiene la altura del header si existe
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Cierra el menú lateral si está abierto después de navegar
+                if (body.classList.contains('sidebar-active')) {
+                    body.classList.remove('sidebar-active');
+                    navLinks.classList.remove('active');
+                }
+            }
+        });
+    });
+
+    //Lógica para el formulario de contacto
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
@@ -20,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
             formMessage.className = ''; // Limpiar clases previas
 
             try {
-           
-                const response = await fetch('http://localhost:3000/api/send-email', { 
+       
+                const response = await fetch('https://personal-b4vy.onrender.com/api/send-email', { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -31,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const result = await response.json();
 
-                if (response.ok) { // Verifica si la respuesta HTTP es 2xx
+                if (response.ok) {
                     formMessage.textContent = result.message;
                     formMessage.classList.add('success-message');
                     form.reset(); // Limpiar el formulario solo si el envío fue exitoso
@@ -46,76 +124,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    //FIN: Lógica para el formulario de contacto
 
-
-    const handleScroll = () => {
-        if (window.scrollY > 50) {
-            body.classList.add('scrolled');
-            header.classList.add('scrolled');
-        } else {
-            body.classList.remove('scrolled');
-            header.classList.remove('scrolled');
-        }
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            body.classList.toggle('sidebar-active');
-            navLinks.classList.toggle('active'); 
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (body.classList.contains('sidebar-active')) {
-                    body.classList.remove('sidebar-active');
-                    navLinks.classList.remove('active'); 
-                }
+    // Lógica para el seguimiento de visitas (Firebase Firestore)
+    async function trackVisit() {
+        try {
+        
+            const response = await fetch('https://personal-b4vy.onrender.com//api/track-visit', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+          
+                body: JSON.stringify({}) // Envía un objeto vacío si no hay datos específicos del body
             });
-        });
 
-        // Click fuera del menú para cerrarlo
-        document.addEventListener('click', (event) => {
-            if (body.classList.contains('sidebar-active') &&
-                !navLinks.contains(event.target) &&
-                !menuToggle.contains(event.target)) {
-
-                body.classList.remove('sidebar-active');
-                navLinks.classList.remove('active'); 
+            if (response.ok) {
+                console.log('Visita registrada en el backend.');
+            } else {
+                const errorData = await response.json();
+                console.error('Error al registrar visita:', errorData.message);
             }
-        });
-
-    } else {
-        console.error("Error: main-menu-toggle o primary-nav-links no fueron encontrados en el DOM.");
+        } catch (error) {
+            console.error('Error de red al intentar registrar la visita:', error);
+        }
     }
 
-    // Smooth scrolling para los anclajes
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                const headerOffset = header ? header.offsetHeight : 0;
-                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                const offsetPosition = elementPosition - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Cierra el menú lateral al hacer clic en un enlace de anclaje
-                if (body.classList.contains('sidebar-active')) {
-                    body.classList.remove('sidebar-active');
-                    navLinks.classList.remove('active'); 
-                }
-            }
-        });
-    });
+    // Llama a la función trackVisit cuando el DOM esté completamente cargado
+    trackVisit();
 });
