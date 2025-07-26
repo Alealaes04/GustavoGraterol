@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.main-menu-toggle');
     const navLinks = document.querySelector('.primary-nav-links');
 
-    // --- Lógica para el scroll del header ---
+    // Lógica para el scroll del header 
     const handleScroll = () => {
         if (window.scrollY > 50) {
             body.classList.add('scrolled');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScroll(); // Llama una vez al cargar para establecer el estado inicial
     window.addEventListener('scroll', handleScroll);
 
-    // --- Lógica para el menú lateral (toggle) ---
+    // Lógica para el menú lateral (toggle)
     if (menuToggle && navLinks) {
         // Abrir/cerrar menú al hacer clic en el botón de toggle
         menuToggle.addEventListener('click', () => {
@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
             formMessage.className = ''; // Limpiar clases previas
 
             try {
-       
                 const response = await fetch('https://personal-b4vy.onrender.com/api/send-email', { 
                     method: 'POST',
                     headers: {
@@ -128,13 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lógica para el seguimiento de visitas (Firebase Firestore)
     async function trackVisit() {
         try {
-        
-            const response = await fetch('https://personal-b4vy.onrender.com//api/track-visit', { 
+
+            const response = await fetch('https://personal-b4vy.onrender.com/api/track-visit', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-          
                 body: JSON.stringify({}) // Envía un objeto vacío si no hay datos específicos del body
             });
 
