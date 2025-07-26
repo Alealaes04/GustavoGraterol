@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const db = require('./firebaseConfig'); // Importa la instancia de Firestore
+const db = require('./firebaseConfig'); 
 require('dotenv').config();
-const UAParser = require('ua-parser-js'); // Importa la librería UAParser
+const UAParser = require('ua-parser-js'); 
 
 // Middleware para obtener la IP real del cliente
 const getClientIp = (req) => {
@@ -27,8 +27,8 @@ router.post('/track-visit', async (req, res) => {
     // Extrae la información relevante del resultado del parseo
     const os = uaResult.os.name ? `${uaResult.os.name} ${uaResult.os.version || ''}`.trim() : 'Unknown OS';
     const browser = uaResult.browser.name ? `${uaResult.browser.name} ${uaResult.browser.version ? uaResult.browser.version.split('.')[0] : ''}`.trim() : 'Unknown Browser';
-    const deviceType = uaResult.device.type || 'Desktop'; // 'mobile', 'tablet', 'smarttv', 'wearable', 'embedded' etc.
-    const deviceModel = uaResult.device.model || ''; // Modelo específico (más común en móviles)
+    const deviceType = uaResult.device.type || 'Desktop'; 
+    const deviceModel = uaResult.device.model || ''; 
     const cpuArchitecture = uaResult.cpu.architecture || '';
 
     try {
