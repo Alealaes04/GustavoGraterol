@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formMessage.className = ''; // Limpiar clases previas
 
             try {
-                const response = await fetch('https://personal-b4vy.onrender.com/api/send-email', { 
+                const response = await fetch('https://gustavo-graterol-portafolio.onrender.com/api/send-email', { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
