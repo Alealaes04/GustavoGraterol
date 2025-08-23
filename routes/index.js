@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const galleryData = require('./galleryData');
 
 const projectsData = [
     {
@@ -8,7 +9,8 @@ const projectsData = [
         company: "Software de control, gestión e inversión de finanzas - solo",
         description: "Plataforma que conecta a usuarios clientes con usuarios asesores para el control, gestión e inversión de sus finanzas.",
         technologies: ["Node.js", "Javascript", "HTML", "SQLite", "Firebase", "WebSockets"],
-        link: "https://ai-finance-solutions-sqlite.onrender.com" 
+        link: "https://ai-finance-solutions-sqlite.onrender.com",
+        hasGallery: true 
     },
     {
         name: "Sistema de Registro y Control de Bienes",
@@ -16,7 +18,8 @@ const projectsData = [
         company: "SIBCI GUÁRICO - 3 desarrolladores",
         description: "Desarrollo de un sistema para el registro y control de bienes utilizando códigos QR.",
         technologies: ["Node.js", "Express", "Firebase"],
-        link: "https://appgob-hvym.onrender.com"
+        link: "https://appgob-hvym.onrender.com",
+        hasGallery: true
     },
     {
         name: "Sistema de Gestión de Cerdos",
@@ -24,7 +27,8 @@ const projectsData = [
         company: "Granja Porcina - Marranitos - 3 desarrolladores",
         description: "Sistema FullStack (Node.js, HTML, CSS, Javascript, React, Firebase) para la gestión integral de cerdos.",
         technologies: ["Node.js", "HTML", "CSS", "Javascript", "React", "Firebase"],
-        link: "https://granja-prados-de-maria.onrender.com"
+        link: "https://granja-prados-de-maria.onrender.com",
+        hasGallery: false 
     },
     {
         name: "Sistema de Casino - Valhalla",
@@ -32,13 +36,19 @@ const projectsData = [
         company: "Casino - Valhalla (En progreso)",
         description: "Desarrollo backend con Node.js encargado de proporcionar la lógica y funcionalidad a los juegos dentro del sistema del casino. 3 desarrolladores",
         technologies: ["Node.js", "Express", "WebSockets", "SQL"],
-        link: ""
+        link: "",
+        hasGallery: false 
     }
 ];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { projects: projectsData });
+});
+
+
+router.get('/gallery', function(req, res, next) {
+    res.render('gallery', { galleryData: galleryData, query: req.query });
 });
 
 module.exports = router;
