@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function trackVisit() {
         try {
 
-            const response = await fetch('https://personal-b4vy.onrender.com/api/track-visit', { 
+            const response = await fetch('https://gustavo-graterol-portafolio.onrender.com/api/track-visit', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

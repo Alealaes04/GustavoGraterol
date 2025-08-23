@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Configuración de CORS
 app.use(cors({
     origin: [
-        'https://personal-b4vy.onrender.com', 
+        'https://gustavo-graterol-portafolio.onrender.com', 
         'http://localhost:5500',              
         'http://127.0.0.1:5500'               
     ]

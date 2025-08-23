@@ -2,10 +2,10 @@
 
 const galleryData = {
     "AI-Finance-Solutions": [
-        "/fotos/ai-finance/vistaprincipal/vista principal 1.png",
-        "/fotos/ai-finance/vistaprincipal/vista principal 2.png",
-        "/fotos/ai-finance/vistaprincipal/vista principal 3.png",
-        "/fotos/ai-finance/vistaprincipal/vista principal 4.png",
+        "/fotos/ai-finance/vistaprincipal/Vista principal 1.png",
+        "/fotos/ai-finance/vistaprincipal/Vista principal 2.png",
+        "/fotos/ai-finance/vistaprincipal/Vista principal 3.png",
+        "/fotos/ai-finance/vistaprincipal/Vista principal 4.png",
         "/fotos/ai-finance/ingreso/asesor.png",
         "/fotos/ai-finance/ingreso/cliente.png",
         "/fotos/ai-finance/ingreso/registro.png",
