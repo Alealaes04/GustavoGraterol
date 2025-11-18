@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    handleScroll(); // Llama una vez al cargar para establecer el estado inicial
+    handleScroll(); 
     window.addEventListener('scroll', handleScroll);
 
     // Lógica para el menú lateral (toggle)
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Error: Elementos 'main-menu-toggle' o 'primary-nav-links' no encontrados en el DOM.");
     }
 
-    //Lógica para el smooth scrolling a secciones
+    // Lógica para el smooth scrolling a secciones
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                const headerOffset = header ? header.offsetHeight : 0; // Obtiene la altura del header si existe
+                const headerOffset = header ? header.offsetHeight : 0;
                 const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                 const offsetPosition = elementPosition - headerOffset;
 
@@ -82,13 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //Lógica para el formulario de contacto
+    // --- LÓGICA REVISADA PARA EL FORMULARIO DE CONTACTO ---
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
     if (contactForm) {
         contactForm.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+            event.preventDefault();
 
             const form = event.target;
             const formData = new FormData(form);
@@ -98,7 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
             formMessage.className = ''; // Limpiar clases previas
 
             try {
-                const response = await fetch('https://gustavo-graterol-portafolio.onrender.com/api/send-email', { 
+                // CAMBIO CLAVE: Usar ruta relativa '/api/send-email'
+                const response = await fetch('/api/send-email', { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -111,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     formMessage.textContent = result.message;
                     formMessage.classList.add('success-message');
-                    form.reset(); // Limpiar el formulario solo si el envío fue exitoso
+                    form.reset();
                 } else {
                     formMessage.textContent = result.message || 'Error desconocido al enviar el mensaje.';
                     formMessage.classList.add('error-message');
@@ -124,16 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica para el seguimiento de visitas (Firebase Firestore)
+    // --- LÓGICA REVISADA PARA EL SEGUIMIENTO DE VISITAS ---
     async function trackVisit() {
         try {
-
-            const response = await fetch('https://gustavo-graterol-portafolio.onrender.com/api/track-visit', { 
+            // CAMBIO CLAVE: Usar ruta relativa '/api/track-visit'
+            const response = await fetch('/api/track-visit', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({}) // Envía un objeto vacío si no hay datos específicos del body
+                body: JSON.stringify({})
             });
 
             if (response.ok) {
@@ -147,6 +148,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Llama a la función trackVisit cuando el DOM esté completamente cargado
     trackVisit();
 });
