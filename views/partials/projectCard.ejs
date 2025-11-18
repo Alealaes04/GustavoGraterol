@@ -11,9 +11,4 @@
     <% if (project.hasGallery) { %>
         <a href="/gallery?project=<%= project.name.replace(/ /g, '-') %>">Galería</a>
     <% } %>
-    <% if (project.link && project.link.trim() !== '') { %>
-        <a href="<%= project.link %>" target="_blank">Ver Proyecto</a>
-    <% } else { %>
-        <a class="disabled-button">En Desarrollo</a>
-    <% } %>
 </div>
