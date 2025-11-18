@@ -9,7 +9,6 @@ const projectsData = [
         company: "Software de control, gestión e inversión de finanzas - solo",
         description: "Plataforma que conecta a usuarios clientes con usuarios asesores para el control, gestión e inversión de sus finanzas.",
         technologies: ["Node.js", "Javascript", "HTML", "SQLite", "Firebase", "WebSockets"],
-        link: "https://ai-finance-solutions-sqlite.onrender.com",
         hasGallery: true 
     },
     {
@@ -18,7 +17,6 @@ const projectsData = [
         company: "SIBCI GUÁRICO - 3 desarrolladores",
         description: "Desarrollo de un sistema para el registro y control de bienes utilizando códigos QR.",
         technologies: ["Node.js", "Express", "Firebase"],
-        link: "https://appgob-hvym.onrender.com",
         hasGallery: true
     },
     {
@@ -27,7 +25,6 @@ const projectsData = [
         company: "Granja Porcina - Marranitos - 3 desarrolladores",
         description: "Sistema FullStack (Node.js, HTML, CSS, Javascript, React, Firebase) para la gestión integral de cerdos.",
         technologies: ["Node.js", "HTML", "CSS", "Javascript", "React", "Firebase"],
-        link: "https://granja-prados-de-maria.onrender.com",
         hasGallery: false 
     },
     {
@@ -36,7 +33,6 @@ const projectsData = [
         company: "Casino - Valhalla (En progreso)",
         description: "Desarrollo backend con Node.js encargado de proporcionar la lógica y funcionalidad a los juegos dentro del sistema del casino. 3 desarrolladores",
         technologies: ["Node.js", "Express", "WebSockets", "SQL"],
-        link: "",
         hasGallery: false 
     }
 ];
