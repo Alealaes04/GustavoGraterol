@@ -9,6 +9,6 @@
         <% }); %>
     </div>
     <% if (project.hasGallery) { %>
-        <a href="/gallery?project=<%= project.name.replace(/ /g, '-') %>">Galería</a>
+        <a href="/gallery?project=<%= project.galleryKey %>">Galería</a>
     <% } %>
 </div>
