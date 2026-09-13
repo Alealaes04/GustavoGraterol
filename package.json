@@ -1,9 +1,14 @@
 {
-  "name": "personal",
-  "version": "0.0.0",
-  "private": true,
+  "name": "gustavo-graterol-portfolio",
+  "version": "1.0.0",
+  "description": "Portafolio profesional de Gustavo Graterol - Ingeniero en Informática",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "node ./bin/www"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -17,5 +22,13 @@
     "morgan": "^1.10.1",
     "resend": "^6.5.0",
     "ua-parser-js": "^2.0.4"
-  }
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "software-engineer",
+    "full-stack"
+  ],
+  "author": "Gustavo Graterol",
+  "license": "MIT"
 }
