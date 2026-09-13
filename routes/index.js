@@ -4,13 +4,13 @@ const galleryData = require('./galleryData');
 
 const projectsData = [
     {
-        name: "AI Finance Solutions",
-        role: "Desarrollador Fullstack",
-        company: "Software de control, gestión e inversión de finanzas - solo",
-        description: "Plataforma que conecta a usuarios clientes con usuarios asesores para el control, gestión e inversión de sus finanzas.",
-        technologies: ["Node.js", "Javascript", "HTML", "SQLite", "Firebase", "WebSockets"],
+        name: "Sistema de Gestión de Inventario Empresarial",
+        role: "Desarrollador Fullstack & Mantenimiento",
+        company: "Proyecto Freelance - Contrato de mantenimiento semanal",
+        description: "Sistema completo para gestión de inventario implementado para múltiples negocios. Actualmente bajo contrato de mantenimiento con cuota semanal, demostrando capacidad de generar ingresos recurrentes.",
+        technologies: ["Node.js", "Express", "Firebase", "EJS", "CSS", "JavaScript"],
         hasGallery: true,
-        galleryKey: "AI-Finance-Solutions"
+        galleryKey: "Sistema-Gestion-Inventario"
     },
     {
         name: "Sistema de Registro y Control de Bienes",

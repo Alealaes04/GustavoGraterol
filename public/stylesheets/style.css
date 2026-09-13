@@ -301,16 +301,20 @@ header nav h1 {
 }
 
 .skill-category ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     position: relative;
     padding-left: 25px;
+    line-height: 1.6;
+    color: #d0d0d0;
 }
 
 .skill-category ul li::before {
-    content: '⭐';
+    content: '▸';
     position: absolute;
     left: 0;
-    color: #f1fa8c;
+    color: #4a9eff;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .experience-list, .education-list {
@@ -428,10 +432,26 @@ hr {
     text-align: center;
 }
 
+#contact ul {
+    list-style: none;
+    padding-left: 0;
+}
+
 #contact ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: 1.1em;
-    color: #a0aec0;
+    color: #d0d0d0;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+#contact ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #4a9eff;
+    font-weight: bold;
 }
 
 #contact ul li a {
